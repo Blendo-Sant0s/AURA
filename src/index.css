@@ -4,58 +4,19 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 60 42% 93%; /* #F2F5DE */
-    --foreground: 120 30% 12%; /* #172815 */
-
-    --card: 120 33% 96%; /* #F2F7F2 */
-    --card-foreground: 120 30% 12%; /* #172815 */
-
-    --popover: 120 33% 96%; /* #F2F7F2 */
-    --popover-foreground: 120 30% 12%; /* #172815 */
-
-    --primary: 120 30% 12%; /* #172815 */
-    --primary-foreground: 60 42% 93%; /* #F2F5DE */
-
-    --secondary: 0 12% 96%; /* #F6F4F3 */
-    --secondary-foreground: 120 30% 12%; /* #172815 */
-
-    --muted: 120 33% 96%; /* #F2F7F2 */
-    --muted-foreground: 120 14% 25%; /* Versão mais clara do #172815 */
-
-    --accent: 0 12% 96%; /* #F6F4F3 */
-    --accent-foreground: 120 30% 12%; /* #172815 */
-
-    --destructive: 0 85% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 120 10% 85%; /* Versão mais clara do #F2F7F2 */
-    --input: 120 10% 85%; /* Versão mais clara do #F2F7F2 */
-    --ring: 120 30% 12%; /* #172815 */
-
-    --radius: 0.75rem;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
-    @apply bg-aura-off-white text-aura-text;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    @apply bg-aura-soft-green text-aura-text;
   }
 }
 
 @layer components {
   .aura-card {
-    @apply bg-aura-soft-green rounded-xl p-4 shadow-sm;
+    @apply bg-aura-dark-green/30 rounded-xl p-4 shadow-lg border border-aura-text/10;
   }
   
   .aura-button {
     @apply bg-aura-dark-green text-aura-off-white rounded-full px-6 py-3 
-    transition-all hover:opacity-90 active:scale-95 font-medium;
+    transition-all hover:bg-aura-dark-green/80 active:scale-95 font-medium;
   }
 
   .aura-container {

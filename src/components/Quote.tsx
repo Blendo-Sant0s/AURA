@@ -8,32 +8,32 @@ interface QuoteProps {
 
 const quotes = [
   {
-    text: "Cuide da sua mente como você cuida do seu jardim: regue com bons pensamentos diariamente.",
-    author: "Anônimo"
+    text: "Cada pequeno passo que você dá hoje é uma vitória para seu futuro.",
+    author: "Aura"
   },
   {
-    text: "Respirar fundo é como reiniciar a mente. Faça isso quando precisar.",
-    author: "Anônimo"
+    text: "Sua força interior é maior do que qualquer desafio que você enfrenta.",
+    author: "Aura"
   },
   {
-    text: "Sua paz interior é o maior presente que você pode dar a si mesmo.",
-    author: "Anônimo"
+    text: "Transforme seus pensamentos e você transformará sua realidade.",
+    author: "Aura"
   },
   {
-    text: "A ansiedade não remove o sofrimento de amanhã, mas esvazia a força de hoje.",
-    author: "Corrie ten Boom"
+    text: "Você é mais forte do que pensa e mais capaz do que imagina.",
+    author: "Aura"
   },
   {
-    text: "A maior vitória é a que se conquista sobre si mesmo.",
-    author: "Platão"
+    text: "O autocuidado não é egoísmo, é uma necessidade para seu bem-estar.",
+    author: "Aura"
   },
   {
-    text: "Se você quer ir rápido, vá sozinho. Se quer ir longe, vá acompanhado.",
-    author: "Provérbio Africano"
+    text: "Sua jornada é única, celebre cada progresso.",
+    author: "Aura"
   },
   {
-    text: "O otimismo é a fé que leva à realização. Nada pode ser feito sem esperança e confiança.",
-    author: "Helen Keller"
+    text: "Respire fundo. Você está exatamente onde precisa estar agora.",
+    author: "Aura"
   }
 ];
 
@@ -42,16 +42,24 @@ export default function Quote({ className = "" }: QuoteProps) {
   const [fadeIn, setFadeIn] = useState(true);
 
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setQuote(quotes[randomIndex]);
+    const interval = setInterval(() => {
+      setFadeIn(false);
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        setQuote(quotes[randomIndex]);
+        setFadeIn(true);
+      }, 300);
+    }, 30000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className={`relative p-5 rounded-xl bg-aura-soft-beige ${className} ${fadeIn ? 'animate-fade-in' : ''}`}>
-      <QuoteIcon size={24} className="absolute top-4 left-4 text-aura-dark-green opacity-20" />
+    <div className={`relative p-5 rounded-xl bg-aura-dark-green/30 backdrop-blur-sm border border-aura-text/10 ${className} ${fadeIn ? 'animate-fade-in' : 'opacity-0'} transition-opacity duration-300`}>
+      <QuoteIcon size={24} className="absolute top-4 left-4 text-aura-text opacity-20" />
       <div className="pl-6 pr-2">
-        <p className="text-lg font-medium text-aura-dark-green italic">"{quote.text}"</p>
-        <p className="text-right text-sm mt-3 text-aura-dark-green/70">— {quote.author}</p>
+        <p className="text-lg font-medium text-aura-text italic">{quote.text}</p>
+        <p className="text-right text-sm mt-3 text-aura-text/70">— {quote.author}</p>
       </div>
     </div>
   );
