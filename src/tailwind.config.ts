@@ -52,13 +52,18 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
-        // Cores personalizadas para o aplicativo Aura
+        // Dark, calming color palette for mental wellness app
         aura: {
-          "dark-green": "#0F1A0F",
-          "off-white": "#E5E6DD",
-          "soft-green": "#1A221A",
-          "soft-beige": "#2A2826",
-          "text": "#E5E6DD"
+          // Deep, calming dark green
+          "dark-green": "#0E1E16", 
+          // Soft, muted off-white for text and highlights
+          "off-white": "#E0E6D8", 
+          // Very dark background, almost black with green undertones
+          "soft-green": "#0A1410", 
+          // Slightly lighter background for cards and elements
+          "soft-beige": "#122620", 
+          // Soft, muted text color
+          "text": "#C5D1C0"
         }
       },
       borderRadius: {

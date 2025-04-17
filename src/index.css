@@ -11,7 +11,7 @@
 
 @layer components {
   .aura-card {
-    @apply bg-aura-dark-green/30 rounded-xl p-4 shadow-lg border border-aura-text/10;
+    @apply bg-aura-dark-green/40 rounded-xl p-4 shadow-lg border border-aura-text/10;
   }
   
   .aura-button {
