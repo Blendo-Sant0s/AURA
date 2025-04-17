@@ -4,8 +4,9 @@ import Layout from "@/components/Layout";
 import Header from "@/components/Header";
 import Quote from "@/components/Quote";
 import MoodSelector from "@/components/MoodSelector";
+import MoodBasedMusic from "@/components/MoodBasedMusic";
 import GoalTracker from "@/components/GoalTracker";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/components/AuthProvider";
 
 const Index = () => {
@@ -42,6 +43,9 @@ const Index = () => {
         <Quote className="my-6" />
         
         <MoodSelector onSelect={handleMoodSelect} />
+        
+        {/* Add the new mood-based music component */}
+        <MoodBasedMusic selectedMood={selectedMood} />
         
         <div className="mt-8">
           <GoalTracker />
