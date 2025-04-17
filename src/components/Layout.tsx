@@ -1,7 +1,9 @@
 
 import { ReactNode } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { Home, Music, Heart, Settings, MessageSquare } from "lucide-react";
+import { Home, Music, Heart, Settings, MessageSquare, LogOut, User } from "lucide-react";
+import { useAuth } from "./AuthProvider";
+import { useToast } from "@/hooks/use-toast";
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,6 +11,8 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
+  const { user, logout } = useAuth();
+  const { toast } = useToast();
   
   const navItems = [
     { path: "/", icon: Home, label: "Home" },
@@ -18,9 +22,29 @@ export default function Layout({ children }: LayoutProps) {
     { path: "/configuracoes", icon: Settings, label: "Config" }
   ];
 
+  const handleLogout = () => {
+    toast({
+      title: "Até breve!",
+      description: "Esperamos ver você novamente em breve.",
+      duration: 3000,
+    });
+    logout();
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
-      <main className="flex-1 pb-16">
+      <div className="fixed top-0 right-0 p-4 z-10">
+        <button 
+          onClick={handleLogout}
+          className="flex items-center space-x-2 bg-aura-dark-green/50 hover:bg-aura-dark-green/70 text-aura-text rounded-full px-3 py-1.5 text-sm"
+        >
+          <User size={16} />
+          <span className="hidden md:inline">{user?.name || "Usuário"}</span>
+          <LogOut size={16} />
+        </button>
+      </div>
+      
+      <main className="flex-1 pb-16 pt-16">
         {children}
       </main>
       

@@ -6,22 +6,24 @@ import Quote from "@/components/Quote";
 import MoodSelector from "@/components/MoodSelector";
 import GoalTracker from "@/components/GoalTracker";
 import { useToast } from "@/components/ui/use-toast";
+import { useAuth } from "@/components/AuthProvider";
 
 const Index = () => {
   const { toast } = useToast();
-  const [userName, setUserName] = useState("Visitante");
+  const { user } = useAuth();
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      setUserName("Usuário");
-      toast({
-        title: "Bem-vindo de volta!",
-        description: "Que bom ter você aqui novamente. Como está se sentindo hoje?",
-        duration: 4000,
-      });
-    }, 1500);
-  }, [toast]);
+    if (user) {
+      setTimeout(() => {
+        toast({
+          title: user.isAnonymous ? "Bem-vindo!" : "Bem-vindo de volta!",
+          description: "Como está se sentindo hoje?",
+          duration: 4000,
+        });
+      }, 1500);
+    }
+  }, [toast, user]);
 
   const handleMoodSelect = (mood: string) => {
     setSelectedMood(mood);
@@ -35,7 +37,7 @@ const Index = () => {
   return (
     <Layout>
       <div className="aura-container">
-        <Header title={`Olá, ${userName}`} showNotification />
+        <Header title={`Olá, ${user?.name || "Visitante"}`} showNotification />
         
         <Quote className="my-6" />
         
