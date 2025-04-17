@@ -1,10 +1,9 @@
-
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import Header from "@/components/Header";
 import { 
   Bell, Moon, Sun, User, Heart, Shield, HelpCircle, 
-  LogOut, ChevronRight, Toggle 
+  LogOut, ChevronRight 
 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 
