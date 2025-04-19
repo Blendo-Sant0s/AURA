@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,13 +52,19 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Cores personalizadas para o aplicativo Aura
 				aura: {
 					"dark-green": "#172815",
 					"off-white": "#F2F5DE",
 					"soft-green": "#F2F7F2",
 					"soft-beige": "#F6F4F3",
 					"text": "#333333"
+				},
+				dark: {
+					"dark-green": "#0E1E16", 
+					"off-white": "#E0E6D8", 
+					"soft-green": "#0A1410", 
+					"soft-beige": "#122620", 
+					"text": "#C5D1C0"
 				}
 			},
 			borderRadius: {

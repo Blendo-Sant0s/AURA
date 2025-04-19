@@ -55,11 +55,11 @@ export default function Quote({ className = "" }: QuoteProps) {
   }, []);
 
   return (
-    <div className={`relative p-5 rounded-xl bg-aura-dark-green/30 backdrop-blur-sm border border-aura-text/10 ${className} ${fadeIn ? 'animate-fade-in' : 'opacity-0'} transition-opacity duration-300`}>
-      <QuoteIcon size={24} className="absolute top-4 left-4 text-aura-text opacity-20" />
+    <div className={`relative p-5 rounded-xl bg-aura-dark-green/30 dark:bg-dark-dark-green/40 backdrop-blur-sm border border-aura-text/10 dark:border-dark-text/20 ${className} ${fadeIn ? 'animate-fade-in' : 'opacity-0'} transition-opacity duration-300`}>
+      <QuoteIcon size={24} className="absolute top-4 left-4 text-aura-text dark:text-dark-text opacity-20" />
       <div className="pl-6 pr-2">
-        <p className="text-lg font-medium text-aura-text italic">{quote.text}</p>
-        <p className="text-right text-sm mt-3 text-aura-text/70">— {quote.author}</p>
+        <p className="text-lg font-medium text-aura-text dark:text-dark-text italic">{quote.text}</p>
+        <p className="text-right text-sm mt-3 text-aura-text/70 dark:text-dark-text/70">— {quote.author}</p>
       </div>
     </div>
   );

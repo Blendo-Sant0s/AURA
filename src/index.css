@@ -4,19 +4,66 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Light mode variables */
+    --background: 60 30% 98%;
+    --foreground: 142 30% 10%;
+    --card: 60 30% 98%;
+    --card-foreground: 142 30% 10%;
+    --popover: 60 30% 98%;
+    --popover-foreground: 142 30% 10%;
+    --primary: 142 40% 16%;
+    --primary-foreground: 60 30% 98%;
+    --secondary: 95 35% 95%;
+    --secondary-foreground: 142 30% 10%;
+    --muted: 95 35% 95%;
+    --muted-foreground: 142 10% 40%;
+    --accent: 95 35% 95%;
+    --accent-foreground: 142 30% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 30% 98%;
+    --border: 142 5% 90%;
+    --input: 142 5% 90%;
+    --ring: 142 40% 16%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark mode variables */
+    --background: 142 35% 5%;
+    --foreground: 60 15% 90%;
+    --card: 142 35% 8%;
+    --card-foreground: 60 15% 90%;
+    --popover: 142 35% 8%;
+    --popover-foreground: 60 15% 90%;
+    --primary: 60 30% 85%;
+    --primary-foreground: 142 35% 10%;
+    --secondary: 142 30% 15%;
+    --secondary-foreground: 60 15% 90%;
+    --muted: 142 30% 15%;
+    --muted-foreground: 60 10% 70%;
+    --accent: 142 30% 15%;
+    --accent-foreground: 60 15% 90%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 60 15% 90%;
+    --border: 142 30% 15%;
+    --input: 142 30% 15%;
+    --ring: 60 30% 85%;
+  }
+
   body {
-    @apply bg-aura-soft-green text-aura-text;
+    @apply bg-aura-soft-green text-aura-text transition-colors duration-300 dark:bg-dark-soft-green dark:text-dark-text;
   }
 }
 
 @layer components {
   .aura-card {
-    @apply bg-aura-dark-green/40 rounded-xl p-4 shadow-lg border border-aura-text/10;
+    @apply bg-aura-dark-green/40 dark:bg-dark-dark-green/40 rounded-xl p-4 shadow-lg border border-aura-text/10 dark:border-dark-text/10;
   }
   
   .aura-button {
-    @apply bg-aura-dark-green text-aura-off-white rounded-full px-6 py-3 
-    transition-all hover:bg-aura-dark-green/80 active:scale-95 font-medium;
+    @apply bg-aura-dark-green text-aura-off-white dark:bg-dark-dark-green dark:text-dark-off-white rounded-full px-6 py-3 
+    transition-all hover:bg-aura-dark-green/80 dark:hover:bg-dark-dark-green/80 active:scale-95 font-medium;
   }
 
   .aura-container {

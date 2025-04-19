@@ -95,7 +95,7 @@ export default function MoodBasedMusic({ selectedMood }: MoodBasedMusicProps) {
 
   if (!selectedMood || !recommendation) {
     return (
-      <Card className="border border-aura-text/10 bg-aura-dark-green/20 mt-6">
+      <Card className="border border-aura-text/10 dark:border-dark-text/10 bg-aura-dark-green/20 dark:bg-dark-dark-green/30 mt-6 transition-colors">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg">
             <Music size={18} />
@@ -103,7 +103,7 @@ export default function MoodBasedMusic({ selectedMood }: MoodBasedMusicProps) {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-aura-text/80">
+          <p className="text-sm text-aura-text/80 dark:text-dark-text/80">
             Selecione seu humor para receber uma recomendação musical personalizada.
           </p>
         </CardContent>
@@ -112,7 +112,7 @@ export default function MoodBasedMusic({ selectedMood }: MoodBasedMusicProps) {
   }
 
   return (
-    <Card className="border border-aura-text/10 bg-aura-dark-green/20 mt-6 animate-fade-in">
+    <Card className="border border-aura-text/10 dark:border-dark-text/10 bg-aura-dark-green/20 dark:bg-dark-dark-green/30 mt-6 animate-fade-in transition-colors">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-lg">
           <Music size={18} />
@@ -126,19 +126,19 @@ export default function MoodBasedMusic({ selectedMood }: MoodBasedMusicProps) {
             style={{ backgroundImage: `url(${recommendation.cover})` }}
           />
           <div className="flex-1">
-            <h3 className="font-medium text-aura-off-white">{recommendation.title}</h3>
-            <p className="text-xs text-aura-off-white/70">{recommendation.artist}</p>
+            <h3 className="font-medium text-aura-off-white dark:text-dark-off-white">{recommendation.title}</h3>
+            <p className="text-xs text-aura-off-white/70 dark:text-dark-off-white/70">{recommendation.artist}</p>
             <div className="flex items-center mt-2">
               <button 
                 onClick={() => togglePlay(recommendation.id)}
-                className="p-2 bg-aura-dark-green text-aura-off-white rounded-full mr-2 hover:bg-aura-dark-green/80 transition-colors"
+                className="p-2 bg-aura-dark-green dark:bg-dark-dark-green text-aura-off-white dark:text-dark-off-white rounded-full mr-2 hover:bg-aura-dark-green/80 dark:hover:bg-dark-dark-green/80 transition-colors"
                 aria-label={currentPlaying === recommendation.id ? "Pause" : "Play"}
               >
                 {currentPlaying === recommendation.id ? <Pause size={16} /> : <Play size={16} />}
               </button>
-              <span className="text-xs text-aura-off-white/60">{recommendation.duration}</span>
+              <span className="text-xs text-aura-off-white/60 dark:text-dark-off-white/60">{recommendation.duration}</span>
               <button 
-                className="p-2 ml-auto text-aura-off-white/70 hover:text-red-500 transition-colors"
+                className="p-2 ml-auto text-aura-off-white/70 dark:text-dark-off-white/70 hover:text-red-500 transition-colors"
                 aria-label="Add to favorites"
               >
                 <Heart size={16} />

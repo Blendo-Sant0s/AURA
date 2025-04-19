@@ -8,10 +8,12 @@ import MoodBasedMusic from "@/components/MoodBasedMusic";
 import GoalTracker from "@/components/GoalTracker";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/components/AuthProvider";
+import { useTheme } from "@/components/ThemeProvider";
 
 const Index = () => {
   const { toast } = useToast();
   const { user } = useAuth();
+  const { theme } = useTheme();
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
 
   useEffect(() => {
@@ -25,6 +27,28 @@ const Index = () => {
       }, 1500);
     }
   }, [toast, user]);
+
+  useEffect(() => {
+    // Check time of day to show appropriate greeting
+    const currentHour = new Date().getHours();
+    let greeting = "Olá";
+    
+    if (currentHour >= 5 && currentHour < 12) {
+      greeting = "Bom dia";
+    } else if (currentHour >= 12 && currentHour < 18) {
+      greeting = "Boa tarde";
+    } else {
+      greeting = "Boa noite";
+    }
+    
+    toast({
+      title: `${greeting}!`,
+      description: theme === "dark" 
+        ? "O modo noturno está ativado para seu conforto." 
+        : "Esperamos que você tenha um ótimo dia!",
+      duration: 3000,
+    });
+  }, [theme, toast]);
 
   const handleMoodSelect = (mood: string) => {
     setSelectedMood(mood);
@@ -44,7 +68,6 @@ const Index = () => {
         
         <MoodSelector onSelect={handleMoodSelect} />
         
-        {/* Add the new mood-based music component */}
         <MoodBasedMusic selectedMood={selectedMood} />
         
         <div className="mt-8">

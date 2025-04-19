@@ -1,8 +1,7 @@
-
 import Layout from "@/components/Layout";
 import Header from "@/components/Header";
 import MusicCard from "@/components/MusicCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface Music {
   id: number;
@@ -92,8 +91,8 @@ const Musicas = () => {
               onClick={() => handleFilterChange(filter)}
               className={`px-4 py-2 rounded-full text-sm mr-2 whitespace-nowrap transition-colors ${
                 activeFilter === filter
-                  ? "bg-aura-dark-green text-aura-off-white"
-                  : "bg-aura-soft-green text-aura-dark-green"
+                  ? "bg-aura-dark-green dark:bg-dark-dark-green text-aura-off-white dark:text-dark-off-white"
+                  : "bg-aura-soft-green dark:bg-dark-soft-beige/30 text-aura-dark-green dark:text-dark-text"
               }`}
             >
               {filter}
@@ -114,7 +113,7 @@ const Musicas = () => {
               />
             ))
           ) : (
-            <div className="text-center py-10 text-aura-dark-green/70">
+            <div className="text-center py-10 text-aura-dark-green/70 dark:text-dark-text/70">
               Nenhuma música encontrada para este humor.
             </div>
           )}

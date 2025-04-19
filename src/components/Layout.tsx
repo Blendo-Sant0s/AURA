@@ -4,6 +4,7 @@ import { useLocation, Link } from "react-router-dom";
 import { Home, Music, Heart, Settings, MessageSquare, LogOut, User } from "lucide-react";
 import { useAuth } from "./AuthProvider";
 import { useToast } from "@/hooks/use-toast";
+import { ThemeToggle } from "./ThemeToggle";
 
 interface LayoutProps {
   children: ReactNode;
@@ -33,10 +34,11 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="fixed top-0 right-0 p-4 z-10">
+      <div className="fixed top-0 right-0 p-4 z-10 flex items-center space-x-2">
+        <ThemeToggle />
         <button 
           onClick={handleLogout}
-          className="flex items-center space-x-2 bg-aura-dark-green/50 hover:bg-aura-dark-green/70 text-aura-text rounded-full px-3 py-1.5 text-sm"
+          className="flex items-center space-x-2 bg-aura-dark-green/50 hover:bg-aura-dark-green/70 text-aura-text rounded-full px-3 py-1.5 text-sm dark:bg-dark-dark-green/50 dark:hover:bg-dark-dark-green/70 dark:text-dark-text"
         >
           <User size={16} />
           <span className="hidden md:inline">{user?.name || "Usuário"}</span>
@@ -48,7 +50,7 @@ export default function Layout({ children }: LayoutProps) {
         {children}
       </main>
       
-      <nav className="fixed bottom-0 left-0 right-0 bg-aura-soft-green border-t border-aura-dark-green/10 px-2 py-1">
+      <nav className="fixed bottom-0 left-0 right-0 bg-aura-soft-green border-t border-aura-dark-green/10 px-2 py-1 dark:bg-dark-soft-green dark:border-dark-text/10 transition-colors">
         <div className="flex justify-between max-w-md mx-auto">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
@@ -57,7 +59,9 @@ export default function Layout({ children }: LayoutProps) {
                 key={item.path}
                 to={item.path}
                 className={`flex flex-col items-center justify-center py-2 px-4 rounded-lg transition-colors ${
-                  isActive ? "text-aura-dark-green" : "text-aura-dark-green/60"
+                  isActive 
+                    ? "text-aura-dark-green dark:text-dark-off-white" 
+                    : "text-aura-dark-green/60 dark:text-dark-off-white/60"
                 }`}
               >
                 <item.icon size={20} className={isActive ? "animate-pulse-gentle" : ""} />
