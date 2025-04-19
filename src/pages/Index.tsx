@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import Header from "@/components/Header";
@@ -6,6 +5,7 @@ import Quote from "@/components/Quote";
 import MoodSelector from "@/components/MoodSelector";
 import MoodBasedMusic from "@/components/MoodBasedMusic";
 import GoalTracker from "@/components/GoalTracker";
+import { MotivationalImage } from "@/components/MotivationalImage";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/components/AuthProvider";
 import { useTheme } from "@/components/ThemeProvider";
@@ -29,7 +29,6 @@ const Index = () => {
   }, [toast, user]);
 
   useEffect(() => {
-    // Check time of day to show appropriate greeting
     const currentHour = new Date().getHours();
     let greeting = "Olá";
     
@@ -64,13 +63,11 @@ const Index = () => {
       <div className="aura-container">
         <Header title={`Olá, ${user?.name || "Visitante"}`} showNotification />
         
-        <Quote className="my-6" />
-        
-        <MoodSelector onSelect={handleMoodSelect} />
-        
-        <MoodBasedMusic selectedMood={selectedMood} />
-        
-        <div className="mt-8">
+        <div className="space-y-6">
+          <Quote />
+          <MotivationalImage />
+          <MoodSelector onSelect={handleMoodSelect} />
+          <MoodBasedMusic selectedMood={selectedMood} />
           <GoalTracker />
         </div>
       </div>

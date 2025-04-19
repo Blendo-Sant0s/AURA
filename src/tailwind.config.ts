@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,18 +52,19 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
-        // Dark, calming color palette for mental wellness app
         aura: {
-          // Deep, calming dark green
-          "dark-green": "#0E1E16", 
-          // Soft, muted off-white for text and highlights
-          "off-white": "#E0E6D8", 
-          // Very dark background, almost black with green undertones
-          "soft-green": "#0A1410", 
-          // Slightly lighter background for cards and elements
-          "soft-beige": "#122620", 
-          // Soft, muted text color
-          "text": "#C5D1C0"
+          "dark-green": "#2C5530",
+          "off-white": "#F8F9F5",
+          "soft-green": "#E8F0E6",
+          "soft-beige": "#F7F4F0",
+          "text": "#2A2D2A"
+        },
+        dark: {
+          "dark-green": "#1A2A20",
+          "off-white": "#E8EDE5",
+          "soft-green": "#0D1912",
+          "soft-beige": "#1C2822",
+          "text": "#D1DBC9"
         }
       },
       borderRadius: {
