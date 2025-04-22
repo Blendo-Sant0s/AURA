@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import Header from "@/components/Header";
@@ -17,16 +18,16 @@ const Configuracoes = () => {
         <Header title="Configurações" />
         
         <div className="mt-4">
-          <div className="p-4 bg-aura-soft-beige rounded-xl mb-6">
+          <div className="p-4 bg-aura-royal/5 dark:bg-dark-royal/5 rounded-xl mb-6">
             <div className="flex items-center">
-              <div className="w-12 h-12 rounded-full bg-aura-dark-green/20 flex items-center justify-center">
-                <User size={24} className="text-aura-dark-green" />
+              <div className="w-12 h-12 rounded-full bg-aura-royal/20 dark:bg-dark-royal/20 flex items-center justify-center">
+                <User size={24} className="text-aura-royal dark:text-dark-ice" />
               </div>
               <div className="ml-4">
-                <h3 className="font-medium text-aura-dark-green">Usuário</h3>
-                <p className="text-xs text-aura-dark-green/70">usuario@email.com</p>
+                <h3 className="font-medium text-aura-dark dark:text-dark-ice">Usuário</h3>
+                <p className="text-xs text-aura-dark/70 dark:text-dark-ice/70">usuario@email.com</p>
               </div>
-              <button className="ml-auto text-xs underline text-aura-dark-green/80">
+              <button className="ml-auto text-xs underline text-aura-royal dark:text-dark-ice/80">
                 Editar
               </button>
             </div>
@@ -34,71 +35,71 @@ const Configuracoes = () => {
           
           <div className="space-y-5">
             <div>
-              <h3 className="text-sm font-medium text-aura-dark-green/90 mb-3">Preferências</h3>
+              <h3 className="text-sm font-medium text-aura-dark/90 dark:text-dark-ice/90 mb-3">Preferências</h3>
               
               <div className="space-y-2">
-                <div className="p-3 bg-aura-soft-green rounded-lg flex items-center justify-between">
+                <div className="p-3 bg-aura-royal/5 dark:bg-dark-royal/5 rounded-lg flex items-center justify-between">
                   <div className="flex items-center">
-                    <Bell size={18} className="text-aura-dark-green" />
-                    <span className="ml-3 text-aura-dark-green">Notificações</span>
+                    <Bell size={18} className="text-aura-royal dark:text-dark-ice" />
+                    <span className="ml-3 text-aura-dark dark:text-dark-ice">Notificações</span>
                   </div>
                   <Switch 
                     checked={notifications} 
                     onCheckedChange={setNotifications} 
-                    className="data-[state=checked]:bg-aura-dark-green" 
+                    className="data-[state=checked]:bg-aura-royal" 
                   />
                 </div>
                 
-                <div className="p-3 bg-aura-soft-green rounded-lg flex items-center justify-between">
+                <div className="p-3 bg-aura-royal/5 dark:bg-dark-royal/5 rounded-lg flex items-center justify-between">
                   <div className="flex items-center">
                     {darkMode ? (
-                      <Moon size={18} className="text-aura-dark-green" />
+                      <Moon size={18} className="text-aura-royal dark:text-dark-ice" />
                     ) : (
-                      <Sun size={18} className="text-aura-dark-green" />
+                      <Sun size={18} className="text-aura-royal dark:text-dark-ice" />
                     )}
-                    <span className="ml-3 text-aura-dark-green">Modo escuro</span>
+                    <span className="ml-3 text-aura-dark dark:text-dark-ice">Modo escuro</span>
                   </div>
                   <Switch 
                     checked={darkMode} 
                     onCheckedChange={setDarkMode} 
-                    className="data-[state=checked]:bg-aura-dark-green" 
+                    className="data-[state=checked]:bg-aura-royal" 
                   />
                 </div>
               </div>
             </div>
             
             <div>
-              <h3 className="text-sm font-medium text-aura-dark-green/90 mb-3">Suporte</h3>
+              <h3 className="text-sm font-medium text-aura-dark/90 dark:text-dark-ice/90 mb-3">Suporte</h3>
               
               <div className="space-y-2">
-                <button className="p-3 bg-aura-soft-green rounded-lg flex items-center justify-between w-full">
+                <button className="p-3 bg-aura-royal/5 dark:bg-dark-royal/5 rounded-lg flex items-center justify-between w-full">
                   <div className="flex items-center">
-                    <HelpCircle size={18} className="text-aura-dark-green" />
-                    <span className="ml-3 text-aura-dark-green">Ajuda e suporte</span>
+                    <HelpCircle size={18} className="text-aura-royal dark:text-dark-ice" />
+                    <span className="ml-3 text-aura-dark dark:text-dark-ice">Ajuda e suporte</span>
                   </div>
-                  <ChevronRight size={18} className="text-aura-dark-green/60" />
+                  <ChevronRight size={18} className="text-aura-dark/60 dark:text-dark-ice/60" />
                 </button>
                 
-                <button className="p-3 bg-aura-soft-green rounded-lg flex items-center justify-between w-full">
+                <button className="p-3 bg-aura-royal/5 dark:bg-dark-royal/5 rounded-lg flex items-center justify-between w-full">
                   <div className="flex items-center">
-                    <Shield size={18} className="text-aura-dark-green" />
-                    <span className="ml-3 text-aura-dark-green">Política de privacidade</span>
+                    <Shield size={18} className="text-aura-royal dark:text-dark-ice" />
+                    <span className="ml-3 text-aura-dark dark:text-dark-ice">Política de privacidade</span>
                   </div>
-                  <ChevronRight size={18} className="text-aura-dark-green/60" />
+                  <ChevronRight size={18} className="text-aura-dark/60 dark:text-dark-ice/60" />
                 </button>
                 
-                <button className="p-3 bg-aura-soft-green rounded-lg flex items-center justify-between w-full">
+                <button className="p-3 bg-aura-royal/5 dark:bg-dark-royal/5 rounded-lg flex items-center justify-between w-full">
                   <div className="flex items-center">
-                    <Heart size={18} className="text-aura-dark-green" />
-                    <span className="ml-3 text-aura-dark-green">Sobre Aura</span>
+                    <Heart size={18} className="text-aura-royal dark:text-dark-ice" />
+                    <span className="ml-3 text-aura-dark dark:text-dark-ice">Sobre Aura</span>
                   </div>
-                  <ChevronRight size={18} className="text-aura-dark-green/60" />
+                  <ChevronRight size={18} className="text-aura-dark/60 dark:text-dark-ice/60" />
                 </button>
               </div>
             </div>
             
             <div className="pt-4">
-              <button className="p-3 bg-red-50 text-red-600 rounded-lg flex items-center justify-center w-full">
+              <button className="p-3 bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 rounded-lg flex items-center justify-center w-full">
                 <LogOut size={18} className="mr-2" />
                 <span>Sair</span>
               </button>
