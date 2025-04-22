@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import Header from "@/components/Header";
@@ -20,8 +21,8 @@ const Index = () => {
     if (user) {
       setTimeout(() => {
         toast({
-          title: user.isAnonymous ? "Bem-vindo!" : "Bem-vindo de volta!",
-          description: "Como está se sentindo hoje?",
+          title: user.isAnonymous ? "Bem-vindo, Atleta!" : `Bem-vindo de volta, ${user.name || "Atleta"}!`,
+          description: "Como está sua energia hoje?",
           duration: 4000,
         });
       }, 1500);
@@ -30,30 +31,49 @@ const Index = () => {
 
   useEffect(() => {
     const currentHour = new Date().getHours();
-    let greeting = "Olá";
+    let greeting = "";
     
     if (currentHour >= 5 && currentHour < 12) {
-      greeting = "Bom dia";
+      greeting = "Bom dia, hora de começar com energia!";
     } else if (currentHour >= 12 && currentHour < 18) {
-      greeting = "Boa tarde";
+      greeting = "Boa tarde, continue dando o seu melhor!";
     } else {
-      greeting = "Boa noite";
+      greeting = "Boa noite, hora de recuperar para amanhã!";
     }
     
     toast({
-      title: `${greeting}!`,
+      title: greeting,
       description: theme === "dark" 
-        ? "O modo noturno está ativado para seu conforto." 
-        : "Esperamos que você tenha um ótimo dia!",
+        ? "Modo noturno ativado para seu descanso." 
+        : "Pronto para mais um dia de superação?",
       duration: 3000,
     });
   }, [theme, toast]);
 
   const handleMoodSelect = (mood: string) => {
     setSelectedMood(mood);
+    
+    let message = "";
+    switch(mood) {
+      case "Feliz":
+        message = "Energia positiva! Vamos aproveitar esse momento para superar limites.";
+        break;
+      case "Motivado":
+        message = "Excelente! Você está no caminho certo para alcançar seus objetivos.";
+        break;
+      case "Cansado":
+        message = "A recuperação é parte do processo. Talvez uma música leve ajude.";
+        break;
+      case "Frustrado":
+        message = "Obstáculos são oportunidades disfarçadas. Vamos superar isso juntos.";
+        break;
+      default:
+        message = "Seu bem-estar é importante para seu desempenho. Como podemos ajudar hoje?";
+    }
+    
     toast({
       title: "Obrigado por compartilhar!",
-      description: "Seu bem-estar é importante para nós. Como podemos ajudar hoje?",
+      description: message,
       duration: 3000,
     });
   };
@@ -61,7 +81,7 @@ const Index = () => {
   return (
     <Layout>
       <div className="aura-container">
-        <Header title={`Olá, ${user?.name || "Visitante"}`} showNotification />
+        <Header title={`Olá, ${user?.name || "Atleta"}`} showNotification />
         
         <div className="space-y-6">
           <Quote />

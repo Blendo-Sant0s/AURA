@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Quote as QuoteIcon } from "lucide-react";
+import { Trophy, Star } from "lucide-react";
 
 interface QuoteProps {
   className?: string;
@@ -8,32 +8,32 @@ interface QuoteProps {
 
 const quotes = [
   {
-    text: "Cada pequeno passo que você dá hoje é uma vitória para seu futuro.",
-    author: "Aura"
+    text: "O sucesso não acontece por acaso. É trabalho duro, perseverança, aprendizado, estudo, sacrifício e, acima de tudo, amor pelo que você está fazendo.",
+    author: "Aura Atlética"
   },
   {
-    text: "Sua força interior é maior do que qualquer desafio que você enfrenta.",
-    author: "Aura"
+    text: "A diferença entre o impossível e o possível está na determinação de uma pessoa.",
+    author: "Tommy Lasorda"
   },
   {
-    text: "Transforme seus pensamentos e você transformará sua realidade.",
-    author: "Aura"
+    text: "Não é sobre ter tempo, é sobre fazer tempo. Discipline-se para o sucesso.",
+    author: "Aura Atlética"
   },
   {
-    text: "Você é mais forte do que pensa e mais capaz do que imagina.",
-    author: "Aura"
+    text: "A dor que você sente hoje será a força que você sentirá amanhã.",
+    author: "Aura Atlética"
   },
   {
-    text: "O autocuidado não é egoísmo, é uma necessidade para seu bem-estar.",
-    author: "Aura"
+    text: "Os obstáculos não devem te impedir. Se você encontrar uma parede, não desista. Descubra como escalá-la.",
+    author: "Michael Jordan"
   },
   {
-    text: "Sua jornada é única, celebre cada progresso.",
-    author: "Aura"
+    text: "Campeões não são feitos em academias. Campeões são feitos de algo que eles têm profundamente dentro deles.",
+    author: "Muhammad Ali"
   },
   {
-    text: "Respire fundo. Você está exatamente onde precisa estar agora.",
-    author: "Aura"
+    text: "Defina seus objetivos alto e não pare até chegar lá.",
+    author: "Bo Jackson"
   }
 ];
 
@@ -55,11 +55,14 @@ export default function Quote({ className = "" }: QuoteProps) {
   }, []);
 
   return (
-    <div className={`relative p-5 rounded-xl bg-aura-dark-green/30 dark:bg-dark-dark-green/40 backdrop-blur-sm border border-aura-text/10 dark:border-dark-text/20 ${className} ${fadeIn ? 'animate-fade-in' : 'opacity-0'} transition-opacity duration-300`}>
-      <QuoteIcon size={24} className="absolute top-4 left-4 text-aura-text dark:text-dark-text opacity-20" />
+    <div className={`relative p-5 rounded-xl bg-aura-royal/20 dark:bg-dark-royal/20 backdrop-blur-sm border border-aura-royal/10 dark:border-dark-ice/10 ${className} ${fadeIn ? 'animate-fade-in' : 'opacity-0'} transition-opacity duration-300`}>
+      <Trophy size={24} className="absolute top-4 left-4 text-aura-royal dark:text-dark-royal opacity-40" />
       <div className="pl-6 pr-2">
-        <p className="text-lg font-medium text-aura-text dark:text-dark-text italic">{quote.text}</p>
-        <p className="text-right text-sm mt-3 text-aura-text/70 dark:text-dark-text/70">— {quote.author}</p>
+        <p className="text-lg font-medium text-aura-dark dark:text-dark-ice italic">{quote.text}</p>
+        <div className="flex justify-between items-center mt-3">
+          <p className="text-sm text-aura-dark/70 dark:text-dark-ice/70">— {quote.author}</p>
+          <Star size={16} className="text-aura-lime dark:text-dark-lime" />
+        </div>
       </div>
     </div>
   );

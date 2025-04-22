@@ -1,7 +1,7 @@
 
 import { ReactNode } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { Home, Music, Heart, Settings, MessageSquare, LogOut, User } from "lucide-react";
+import { Home, Activity, Heart, Settings, Trophy, LogOut, User } from "lucide-react";
 import { useAuth } from "./AuthProvider";
 import { useToast } from "@/hooks/use-toast";
 import { ThemeToggle } from "./ThemeToggle";
@@ -16,9 +16,9 @@ export default function Layout({ children }: LayoutProps) {
   const { toast } = useToast();
   
   const navItems = [
-    { path: "/", icon: Home, label: "Home" },
-    { path: "/musicas", icon: Music, label: "Músicas" },
-    { path: "/reflexoes", icon: MessageSquare, label: "Reflexões" },
+    { path: "/", icon: Home, label: "Início" },
+    { path: "/musicas", icon: Activity, label: "Treinos" },
+    { path: "/reflexoes", icon: Trophy, label: "Conquistas" },
     { path: "/favoritos", icon: Heart, label: "Favoritos" },
     { path: "/configuracoes", icon: Settings, label: "Config" }
   ];
@@ -26,7 +26,7 @@ export default function Layout({ children }: LayoutProps) {
   const handleLogout = () => {
     toast({
       title: "Até breve!",
-      description: "Esperamos ver você novamente em breve.",
+      description: "Continue com o bom trabalho, atleta!",
       duration: 3000,
     });
     logout();
@@ -38,10 +38,10 @@ export default function Layout({ children }: LayoutProps) {
         <ThemeToggle />
         <button 
           onClick={handleLogout}
-          className="flex items-center space-x-2 bg-aura-dark-green/50 hover:bg-aura-dark-green/70 text-aura-text rounded-full px-3 py-1.5 text-sm dark:bg-dark-dark-green/50 dark:hover:bg-dark-dark-green/70 dark:text-dark-text"
+          className="flex items-center space-x-2 bg-aura-royal/30 hover:bg-aura-royal/50 text-aura-dark rounded-full px-3 py-1.5 text-sm dark:bg-dark-royal/30 dark:hover:bg-dark-royal/50 dark:text-dark-ice transition-colors"
         >
           <User size={16} />
-          <span className="hidden md:inline">{user?.name || "Usuário"}</span>
+          <span className="hidden md:inline">{user?.name || "Atleta"}</span>
           <LogOut size={16} />
         </button>
       </div>
@@ -50,7 +50,7 @@ export default function Layout({ children }: LayoutProps) {
         {children}
       </main>
       
-      <nav className="fixed bottom-0 left-0 right-0 bg-aura-soft-green border-t border-aura-dark-green/10 px-2 py-1 dark:bg-dark-soft-green dark:border-dark-text/10 transition-colors">
+      <nav className="fixed bottom-0 left-0 right-0 bg-aura-ice border-t border-aura-royal/10 px-2 py-1 dark:bg-dark-charcoal dark:border-dark-royal/10 transition-colors">
         <div className="flex justify-between max-w-md mx-auto">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
@@ -60,8 +60,8 @@ export default function Layout({ children }: LayoutProps) {
                 to={item.path}
                 className={`flex flex-col items-center justify-center py-2 px-4 rounded-lg transition-colors ${
                   isActive 
-                    ? "text-aura-dark-green dark:text-dark-off-white" 
-                    : "text-aura-dark-green/60 dark:text-dark-off-white/60"
+                    ? "text-aura-royal dark:text-dark-lime" 
+                    : "text-aura-dark/60 dark:text-dark-ice/60"
                 }`}
               >
                 <item.icon size={20} className={isActive ? "animate-pulse-gentle" : ""} />

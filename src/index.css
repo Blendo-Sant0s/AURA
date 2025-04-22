@@ -69,4 +69,33 @@
   .aura-container {
     @apply max-w-md mx-auto px-4 py-6;
   }
+  
+  .athlete-progress-bar {
+    @apply h-2 rounded-full bg-aura-royal/20 dark:bg-dark-royal/20 overflow-hidden;
+  }
+  
+  .athlete-progress-fill {
+    @apply h-full bg-aura-lime dark:bg-dark-lime rounded-full transition-all duration-500;
+  }
+  
+  .achievement-badge {
+    @apply inline-flex items-center justify-center p-1 rounded-full bg-aura-royal/10 dark:bg-dark-royal/10;
+  }
+  
+  .workout-card {
+    @apply p-4 rounded-xl border border-aura-royal/20 dark:border-dark-royal/20 bg-gradient-to-br from-aura-royal/5 to-aura-ice dark:from-dark-royal/5 dark:to-dark-charcoal transition-all hover:shadow-md;
+  }
+}
+
+@keyframes pulse-accent {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-accent {
+  animation: pulse-accent 2s infinite;
 }
